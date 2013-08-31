@@ -8,5 +8,7 @@ class Post
   field :publish_date, type: DateTime
   field :category, type: String
 
+  has_and_belongs_to_many :categories
+
   validates_presence_of :title, :description, :content
 end
