@@ -35,6 +35,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'pry'
+end
+
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
