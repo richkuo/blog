@@ -3,10 +3,22 @@
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
+</p>
+<p>
   <strong>Description</strong>
   <%= @post.description %>
+</p>
+<p>
   <strong>Content</strong>
   <%= @post.content %>
+</p>
+<p>
+  <strong>Categories</strong>
+  <ul>
+    <% @post.categories.each do |c| %>
+      <li><%= link_to c.name, c %></li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

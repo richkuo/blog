@@ -25,9 +25,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
+        @categories = post_params[:category].downcase.gsub(/ /, '').split(",")
+        @categories.each do |c|
+          @post.categories << Category.find_or_create_by(name:c)
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
@@ -42,6 +45,10 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        @categories = post_params[:category].downcase.gsub(/ /, '').split(",")
+        @categories.each do |c|
+          @post.categories << Category.find_or_create_by(name:c)
+        end
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else

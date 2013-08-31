@@ -10,5 +10,15 @@
   <%= @category.description %>
 </p>
 
+<p>
+  <strong>Posts under this category: </strong><%= @category.posts.count %>
+  <ul>
+    <% @category.posts.each do |p| %>
+      <li><%= link_to "#{p.title} - #{p.description}", p %></li>
+    <% end %>
+  </ul>
+</p>
+
+
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
