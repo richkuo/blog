@@ -10,11 +10,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <% @categories = [] %>
-        <% Category.all.each do |c| %>
-          <% @categories << c %>
-        <% end %>
-        <% @categories.sort_by! { |c| c.posts.count } %>
+        <% top_categories(1) %>
         <% for i in 0...10 %>
           <li><%= link_to @categories.last.name, @categories.pop unless @categories.size == 0 %></li>
         <% end %>
