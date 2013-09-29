@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
   <%= csrf_meta_tags %>
+  <style>
+    body {
+      font-family: "Helvetica Neue";
+    }
+  </style>
 </head>
 <body>
 
@@ -15,9 +20,13 @@
   <div class="row">
     <div class="col-lg-12">
       <%= yield %>
+      <%= render 'layouts/footer' %>
+
     </div>
   </div>
 </div>
+
+<!-- FOOTER -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
   <script src="/js/bootstrap.min.js"></script>
