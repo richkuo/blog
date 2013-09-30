@@ -10,5 +10,7 @@ class Post
 
   has_and_belongs_to_many :categories
 
+  belongs_to :user
+
   validates_presence_of :title, :description, :content
 end
